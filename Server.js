@@ -3,9 +3,10 @@ const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 
-const app = express();
-const port = 3000;
 
+const app = express();
+
+const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -59,5 +60,5 @@ app.post('/login', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Server running on http://192.168.1.102:${3000}`);
+  console.log(`Server running on port ${port}`);
 });
